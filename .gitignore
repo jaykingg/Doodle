@@ -4,19 +4,12 @@
 # IntelliJ project files
 .idea
 *.iml
-out
-gen
-### Kotlin template
-# Compiled class file
+*.out
+*.gen
 *.class
-
-# Log file
+*.bin
 *.log
-
-# BlueJ files
 *.ctxt
-
-# Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
 # Package Files #
