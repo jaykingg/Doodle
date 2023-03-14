@@ -12,8 +12,8 @@ class Solve2 {
     val dx = intArrayOf(0,0,-1,1)
     val dy = intArrayOf(1,-1,0,0)
     var visited = emptyArray<BooleanArray>()
-    fun solution(maps: Array<String>): IntArray {
-        var answer: IntArray = intArrayOf()
+    fun solution(maps: Array<String>): List<Int> {
+        val answer: MutableList<Int> = mutableListOf()
         val x = maps[0].length
         val y = maps.size
         visited = Array(y) { BooleanArray(x) { false } }
@@ -21,12 +21,12 @@ class Solve2 {
         for(colIndex in 0 until y) {
             for(rowIndex in 0 until x) {
                 if(!visited[colIndex][rowIndex] && maps[colIndex][rowIndex] != 'X') {
-                    answer.plus(bfs(Position(colIndex,rowIndex), maps))
+                    answer.add(bfs(Position(colIndex,rowIndex), maps))
                 }
             }
         }
-        if(answer.isEmpty()) answer.plus(-1)
-        return answer.sortedArray()
+        if(answer.isEmpty()) answer.add(-1)
+        return answer.sorted()
 
     }
 
