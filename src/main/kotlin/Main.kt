@@ -4,6 +4,6 @@ fun main(args: Array<String>) {
     //Sovle3().main()
     //Solve4().main()
     //Solve5().main()
-    Solve6().main()
-    //Solve7().main()
+    //Solve6().main()
+    Solve7().main()
 }
