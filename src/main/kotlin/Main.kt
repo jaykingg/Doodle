@@ -9,5 +9,6 @@ fun main(args: Array<String>) {
     //Solve8().main()
     //Solve9().main()
     //Solve10().main()
-    Solve11().main()
+    //Solve11().main()
+    Solve12().main()
 }
