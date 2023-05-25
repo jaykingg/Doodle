@@ -1,4 +1,8 @@
 class Solve15 {
+    /*
+        https://www.acmicpc.net/problem/2615
+        오목
+     */
     val map = Array(19){ IntArray(19){0}}
     fun main() {
         // 입력
