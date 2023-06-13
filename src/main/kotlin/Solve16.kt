@@ -1,5 +1,5 @@
-import java.lang.Integer.min
-import java.util.*
+import java.lang.Math.abs
+import java.lang.Math.min
 
 /*
     https://www.acmicpc.net/problem/2564
@@ -7,113 +7,61 @@ import java.util.*
  */
 class Solve16 {
     fun main() {
-        val (row, col) = readln().split(" ").map{ it.toInt()}
-        val map = Array(col+1) {IntArray(row+1){-1}}
-        val visited = Array(col+1) {BooleanArray(row+1){false}}
-        val storeSize = readln().toInt()
-        var startY: Int = 0
-        var startX: Int = 0
-
-        for(i in map.indices) {
-            for(j in map[0].indices) {
-                if(i == 0) {
-                    map[i][j] = 0
-                }
-                else if(i == map.size -1) {
-                    map[i][j] = 0
-                }
-                else if(j == 0) {
-                    map[i][j] = 0
-                }
-                else if(j == map[0].size-1) {
-                    map[i][j] = 0
-                }
-            }
-        }
-
-        for(i in 0 until storeSize+1) {
-            val (d,step) = readln().split(" ").map { it.toInt() }
-            if(i != storeSize) {
-                when(d) {
-                    /*
-                    1 -> 북
-                    2 -> 남
-                    3 -> 서
-                    4 -> 동
-                     */
-                    1 -> map[0][step] = Integer.MAX_VALUE
-                    2 -> map[map.size-1][step] = Integer.MAX_VALUE
-                    3 -> map[step][0] = Integer.MAX_VALUE
-                    4 -> map[step][map[0].size-1] = Integer.MAX_VALUE
-                }
+        val (row, col) = readln().split(" ").map { it.toInt() +1 }
+        val total = (row + col - 2) * 2
+        val stores = readln().toInt()
+        val map = makeMap(col,row)
+        val storesPoint = mutableListOf<Pair<Int,Int>>()
+        var result = 0
+        for(i in 0 until stores+1) {
+            val (d, dc) = readln().split(" ").map { it.toInt() }
+            if(i != stores) {
+                storesPoint.add(Pair(d, dc))
             }
             else {
-                when(d) {
-                    1 -> {
-                        startY = 0
-                        startX = step
-                    }
-                    2 -> {
-                        startY = map.size-1
-                        startX = step
-                    }
-                    3 -> {
-                        startY = step
-                        startX = 0
-                    }
-                    4 -> {
-                        startY = step
-                        startX = map[0].size-1
-                    }
+                val (manCol, manRow) = switchDirectionToPoint(Pair(d,dc),map)
+                storesPoint.forEach {
+                    val (storeCol, storeRow) = switchDirectionToPoint(Pair(it.first,it.second),map)
+                    val t = (total) - abs(map[storeCol][storeRow] - map[manCol][manRow])
+                    val tt = abs(map[storeCol][storeRow] - map[manCol][manRow])
+                    result += min((total - abs(map[storeCol][storeRow] - map[manCol][manRow])), abs(map[storeCol][storeRow] - map[manCol][manRow]))
                 }
             }
         }
 
-        val q: Queue<Pair<Pair<Int,Int>,Int>> = LinkedList()
-        q.add(Pair(Pair(startY,startX),0))
-
-        val direction = arrayOf(Pair(0,-1),Pair(0,1),Pair(-1,0),Pair(1,0))
-
-        while(q.isNotEmpty()) {
-            val qp = q.poll()
-            val (y,x) = qp.first
-            var count = qp.second
-
-            visited[y][x] = true
-
-            for(i in direction.indices) {
-                var dy = y + direction[i].first
-                var dx = x + direction[i].second
-                var dcount = count
-                while(true) {
-                    if(dy < 0 || dy > map.size-1 || dx < 0 || dx > map[0].size-1) {
-                        break
-                    }
-                    if(map[dy][dx] == -1 || visited[dy][dx]) {
-                        break
-                    }
-                    if((dy == 0 && dx == 0) || (dy == map.size-1 && dx == 0) || (dy == 0 && dx == map[0].size-1) || (dy == map.size-1 && dx == map[0].size-1)) {
-                        q.add(Pair(Pair(dy,dx),dcount+1))
-                        break
-                    }
-                    dcount++
-                    visited[dy][dx] = true
-                    if(map[dy][dx] > 0) {
-                        map[dy][dx] = min(map[dy][dx], dcount)
-                    }
-                    dy += direction[i].first
-                    dx += direction[i].second
-                }
-            }
-        }
-        var result = 0
-        for(i in map.indices) {
-            for(j in map[0].indices) {
-                if(map[i][j] > 0) {
-                    result += map[i][j]
-                }
-            }
-        }
         println(result)
+
+    }
+
+    fun makeMap(col: Int, row: Int) : Array<IntArray> {
+        val map = Array(col) { IntArray(row) { 0 } }
+
+        for(i in map[0].indices) {
+            map[0][i] = i + 1
+        }
+
+        for(i in 0 until map.size-1) {
+            map[i+1][map[0].size-1] = map[i][map[0].size-1] + 1
+        }
+
+        for(i in map[0].size-1 downTo 1) {
+            map[map.size-1][i-1] = map[map.size-1][i] + 1
+        }
+
+        for(i in map.size-2 downTo 1) {
+            map[i][0] = map[i+1][0] + 1
+        }
+
+        return map
+    }
+
+    fun switchDirectionToPoint(storePoint: Pair<Int,Int>, map: Array<IntArray>) : Pair<Int,Int> {
+        when(storePoint.first) {
+            1 -> return Pair(0,storePoint.second)
+            2 -> return Pair(map.size-1,storePoint.second)
+            3 -> return Pair(storePoint.second,0)
+            4-> return Pair(storePoint.second,map[0].size-1)
+        }
+        return Pair(0,0)
     }
 }
