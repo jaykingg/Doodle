@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
     //Solve12().main()
     //Solve13().main()
     //Solve14().main()
-    Solve16().main()
-    //TODO Solve17().main()
+    //Solve16().main()
+     Solve17().main()
     //TODO Solve18().main()
 }
