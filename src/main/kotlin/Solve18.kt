@@ -1,10 +1,11 @@
 /*
-    문자열
-    https://www.acmicpc.net/problem/9081
-    단어 맞추기
+    https://www.acmicpc.net/problem/1713
+    후보 추천하기
  */
 class Solve18 {
     fun main() {
 
+
     }
+
 }
