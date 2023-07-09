@@ -1,6 +1,7 @@
 import Solve20.Solve20
 import Solve21.Solve21
 import Solve22.Solve22
+import Solve23.Solve23
 
 fun main(args: Array<String>) {
     //Solve1().main()
@@ -23,5 +24,6 @@ fun main(args: Array<String>) {
     //Solve19().main()
     //Solve20().main()
     //Solve21().main()
-    Solve22().main()
+    //Solve22().main()
+    Solve23().main()
 }
