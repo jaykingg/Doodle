@@ -27,5 +27,8 @@ fun main(args: Array<String>) {
     //Solve21().main()
     //Solve22().main()
     //Solve23().main()
-    Solve24().main()
+    //Solve24().main()
+    //Solve25().main()
+    //Solve26().main()
+    Solve27().main()
 }
