@@ -33,5 +33,6 @@ fun main(args: Array<String>) {
     //Solve27().main()
     //Solve28().main()
     //Solve29().main()
-    Solve30().main()
+    //Solve30().main()
+    Solve31().main()
 }
