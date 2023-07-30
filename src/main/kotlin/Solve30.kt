@@ -1,20 +1,49 @@
 class Solve30 {
+    /*
+    https://www.acmicpc.net/problem/9081 단어맞추기 순열
+     */
     fun main() {
-        println(solution(intArrayOf(1, 3, 6, 4, 1, 2)))
+        solution()
     }
 
-    fun solution(A: IntArray): Int {
-        val sortedArr = A.distinct().filter { it > 0 }.sorted()
-        if (sortedArr.isEmpty()) return 1
-        else {
-            sortedArr.forEachIndexed { index, it ->
-                if (index + 1 != it) return index
-                if (index + 1 == sortedArr.size) return sortedArr.size + 1
-            }
+    fun solution() {
+        val line = readLine()!!.toInt()
+        val words = mutableListOf<String>()
+
+        repeat(line) {
+            words.add(readLine()!!)
         }
 
-        return 1
+        for (idx in words.indices) {
+            val word = words[idx].toCharArray()
 
+            var idx1: Int = -1
+            var idx2: Int = -1
+            var temp: Char
+            for (i in word.size - 1 downTo 1) {
+                if (word[i - 1] < word[i]) {
+                    idx1 = i - 1
+                    break
+                }
+            }
+
+            if (idx1 == -1) {
+                println(word)
+            } else {
+                for (i in word.size - 1 downTo idx1 + 1) {
+                    if (word[idx1] < word[i]) {
+                        idx2 = i
+                        break
+                    }
+                }
+                temp = word[idx1]
+                word[idx1] = word[idx2]
+                word[idx2] = temp
+
+                word.sort(idx1 + 1, word.size)
+                println(word)
+            }
+        }
     }
 
 }
