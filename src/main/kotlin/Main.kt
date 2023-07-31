@@ -28,8 +28,8 @@ fun main(args: Array<String>) {
     //Solve28().main()
     //Solve29().main()
     //Solve30().main()
-    //Solve31().main()
+    Solve31().main()
     //Solve32().main()
     ///Solve33().main()
-    Solve34().main()
+    //Solve34().main()
 }
