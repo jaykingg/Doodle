@@ -1,5 +1,3 @@
-package Solve22
-
 import java.util.*
 
 class Solve22 {
@@ -7,7 +5,7 @@ class Solve22 {
         https://school.programmers.co.kr/learn/courses/30/lessons/12985
     */
     fun main() {
-        println(solution(8,4,7))
+        println(solution(8, 4, 7))
     }
 
     fun solution(n: Int, a: Int, b: Int): Int {
@@ -15,10 +13,10 @@ class Solve22 {
 
         var A = a.toDouble()
         var B = b.toDouble()
-        while(A!=B) {
-            A = Math.ceil(A/2)
-            B = Math.ceil(B/2)
-            if(A==B) break
+        while (A != B) {
+            A = Math.ceil(A / 2)
+            B = Math.ceil(B / 2)
+            if (A == B) break
             answer++
         }
 //        var n = n
