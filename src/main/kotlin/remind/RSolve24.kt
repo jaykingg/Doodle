@@ -33,7 +33,8 @@ class RSolve24 {
             }
 
             for (i in 0 until discount.size - 10 + 1) {
-                val cartTemp: MutableMap<String, Int> = cart
+                val cartTemp: MutableMap<String, Int> = mutableMapOf()
+                cartTemp.putAll(cart)
                 if (!cartTemp.containsKey(discount[i])) continue
                 for (j in i until i + 10) {
                     if (cartTemp.containsKey(discount[j]) && cartTemp[discount[j]]!! > 0) {
