@@ -1,3 +1,5 @@
+import remind.*
+
 fun main(args: Array<String>) {
     //Solve1().main()
     //Solve2().main()
@@ -28,8 +30,11 @@ fun main(args: Array<String>) {
     //Solve28().main()
     //Solve29().main()
     //Solve30().main()
-    Solve31().main()
+    //Solve31().main()
     //Solve32().main()
     ///Solve33().main()
     //Solve34().main()
+    //RSolve1.main()
+    //RSolve2.main()
+    RSolve24.main()
 }
