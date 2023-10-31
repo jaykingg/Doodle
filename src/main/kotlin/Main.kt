@@ -36,5 +36,8 @@ fun main(args: Array<String>) {
     //Solve34().main()
     //RSolve1.main()
     //RSolve2.main()
-    RSolve24.main()
+    //RSolve24.main()
+    //KySolve1().main()
+    //KySolve1().main()
+    KySolve3().main()
 }
