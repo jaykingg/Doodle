@@ -33,11 +33,17 @@ fun main(args: Array<String>) {
     //Solve31().main()
     //Solve32().main()
     ///Solve33().main()
-    //Solve34().main()
     //RSolve1.main()
     //RSolve2.main()
     //RSolve24.main()
     //KySolve1().main()
     //KySolve1().main()
-    KySolve3().main()
+    //KySolve3().main()
+    //RPSolve1().main()
+    //RPSolve2().main() //TODO
+    //RPSolve3().main() //TODO
+    //RPSolve4().main() //TODO
+    //RPSolve5().main()
+    Solve34().main()
+
 }
