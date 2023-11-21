@@ -1,3 +1,5 @@
+package Test;
+
 class Storm {
     protected double eyeRadius;
     protected double eyePositionX;

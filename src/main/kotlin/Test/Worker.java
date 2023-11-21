@@ -1,7 +1,7 @@
-//import java.util.*;
+package Test;//import java.util.*;
 //import java.util.HashMap;
 //
-//public class Worker {
+//public class Test.Worker {
 //    private HashMap<Integer, TaskResource> taskResources = new HashMap<Integer, TaskResource>();
 //
 //    public Iterable<TaskResource> getTaskResources() {
@@ -57,7 +57,7 @@
 //    }
 //
 //    public static void main(String[] args) {
-//        Worker d = new Worker();
+//        Test.Worker d = new Test.Worker();
 //
 //        d.acquireTaskResource(1).doTask("Task11");
 //        d.acquireTaskResource(2).doTask("Task21");

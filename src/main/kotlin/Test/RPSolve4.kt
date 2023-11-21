@@ -1,3 +1,5 @@
+package Test
+
 class RPSolve4 {
     fun solution(total_sp: Int, skills: Array<IntArray>): IntArray {
         val childCount = skills.size + 1

@@ -1,3 +1,5 @@
+package Test;
+
 class Node {
     private Node leftChild, rightChild;
 

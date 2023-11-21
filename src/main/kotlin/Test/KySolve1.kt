@@ -1,3 +1,5 @@
+package Test
+
 class KySolve1 {
     fun main() {
         val n = 8

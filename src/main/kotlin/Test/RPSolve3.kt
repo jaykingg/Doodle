@@ -1,4 +1,4 @@
-import java.util.*
+package Test
 
 class RPSolve3 {
 

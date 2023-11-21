@@ -1,3 +1,5 @@
+package Test
+
 class RPSolve5 {
     fun maxListenedSongs(play_list: IntArray, listen_time: Int): Int {
         val n = play_list.size

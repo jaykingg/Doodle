@@ -1,3 +1,5 @@
+package Test
+
 class RPSolve2 {
     fun solution(N: Int, trees: Array<IntArray>): Int {
         val dx = intArrayOf(0, 1, 0, -1)

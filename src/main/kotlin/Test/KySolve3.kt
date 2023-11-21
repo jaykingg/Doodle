@@ -1,3 +1,5 @@
+package Test
+
 class KySolve3 {
     fun main() {
         val n = 20

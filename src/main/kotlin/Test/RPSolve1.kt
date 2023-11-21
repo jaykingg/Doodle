@@ -1,3 +1,5 @@
+package Test
+
 class RPSolve1 {
     fun solution(location: Array<IntArray>, s: IntArray, e: IntArray): Int {
         var answer = 0
