@@ -4,36 +4,41 @@ class Solve34 {
      */
     fun main() {
         val cycle = readLine()!!.toInt()
-        val box: MutableSet<String> = mutableSetOf()
-        val result: MutableList<String> = mutableListOf()
-        val wordArray:Array<String> = Array(cycle){""}
-        for(cycleIdx in 0 until cycle) {
-            val word = readLine()!!
-            wordArray[cycleIdx] = word
-        }
+        val key: MutableSet<String> = mutableSetOf()
 
-        for(wordIdx in wordArray.indices) {
-            val word = wordArray[wordIdx]
-            val wordSplit: MutableList<String> = word.split(" ").toMutableList()
-            var idx = -1
-            val addChar = null
-
-            for(i in wordSplit.indices) {
-                for(j in )
+        for (i in 0 until cycle) {
+            val word: MutableList<String> = readLine()!!.split(" ").toMutableList()
+            var flag = false
+            loop@ for (j in word.indices) {
+                if (!key.contains(word[j][0].uppercase())) {
+                    flag = true
+                    key.add(word[j][0].uppercase())
+                    word[j] = "[${word[j][0]}]${word[j].substring(1, word[j].length)}"
+                    break@loop
+                }
             }
 
+            if (!flag) {
+                loop@ for (j in word.indices) {
+                    for (k in word[j].indices) {
+                        if (k == 0) {
+                            continue
+                        } else {
+                            if (!key.contains(word[j][k].uppercase())) {
+                                key.add(word[j][k].uppercase())
+                                word[j] = "${word[j].substring(0, k)}[${word[j][k]}]${
+                                    word[j].substring(
+                                        k + 1,
+                                        word[j].length
+                                    )
+                                }"
+                                break@loop
+                            }
+                        }
+                    }
+                }
+            }
+            println(word.joinToString(" "))
         }
-
-        result.forEach {
-            println(it)
-        }
-    }
-
-    fun makeWord(word: String, idx: Int) : String {
-        return "11"
-    }
-
-    fun attachWords(words: MutableList<String>) : String {
-        return "11"
     }
 }
