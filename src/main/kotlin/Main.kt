@@ -1,4 +1,3 @@
-
 fun main(args: Array<String>) {
     //Solve1().main()
     //Solve2().main()
@@ -32,6 +31,7 @@ fun main(args: Array<String>) {
     //Solve31().main()
     //Solve32().main()
     ///Solve33().main()
-    Solve34().main()
+    //Solve34().main()
+    Solve35().main()
 
 }
