@@ -1,3 +1,5 @@
+import kotlin.math.max
+
 class Solve37 {
     /*
         Designer PDF Viewer
@@ -23,9 +25,11 @@ class Solve37 {
     }
 
     fun designerPdfViewer(h: Array<Int>, word: String): Int {
-        var result = 0
-        return result
-
+        var max = 0
+        for (i in 0 until word.length) {
+            max = max(max, h.get(word[i] - 'a'))
+        }
+        return max * word.length
     }
 
 }
