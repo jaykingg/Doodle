@@ -35,6 +35,8 @@ fun main(args: Array<String>) {
     //Solve35().main()
     //Solve36().main()
     //Solve37().main()
-    Solve38().main()
+    //Solve38().main()
+    Solve39().main()
+    // Solve40().main() BFS
 
 }
