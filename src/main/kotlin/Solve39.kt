@@ -1,19 +1,44 @@
 class Solve39 {
     /*
-    Highest Value Palindrome
-    https://www.hackerrank.com/challenges/richie-rich/problem?isFullScreen=true
+    Sherlock and the Valid String
+    https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?isFullScreen=true
      */
-    fun highestValuePalindrome(s: String, n: Int, k: Int): String {
+    fun isValid(s: String): String {
+        var index: IntArray = IntArray(26) { 0 }
+        for (element in s) {
+            index[element - 'a']++
+        }
 
-        return ""
+        index = index.filter { it > 0 }.sortedDescending().toIntArray()
+
+        if (index.size < 3) {
+            return "YES"
+        }
+
+        index.forEach { println(it) }
+
+        if (index[0] == index[1]) {
+            if (index[index.size - 1] == index[0]) {
+                return "YES"
+            } else if (index[index.size - 2] == index[0] && index[index.size - 1] == 1) {
+                return "YES"
+            }
+            return "NO"
+        } else {
+            if (index[0] - index[1] > 1) {
+                return "NO"
+            } else if (index[index.size - 1] == index[1]) {
+                return "YES"
+            }
+            return "NO"
+        }
     }
 
     fun main() {
-        val first_multiple_input = readLine()!!.trimEnd().split(" ")
-        val n = first_multiple_input[0].toInt()
-        val k = first_multiple_input[1].toInt()
         val s = readLine()!!
-        val result = highestValuePalindrome(s, n, k)
+
+        val result = isValid(s)
+
         println(result)
     }
 }
