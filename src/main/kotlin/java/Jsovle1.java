@@ -15,7 +15,6 @@ public class Jsovle1 {
      */
     public static void main(String[] args) throws IOException {
         int rankedCount = 6;
-
         List<Integer> ranked = List.of(100, 90, 80, 85, 60);
 
         int playerCount = 5;
