@@ -12,11 +12,11 @@ fun main() = with(System.`in`.bufferedReader()) {
     repeat(testCase) {
         val (numberOfBooks: Int, position: Int) = readLine().split(" ").map { it.toInt() }
         val sequence = readLine().split(" ").map { it.toInt() }.toList()
-        println(getSequence(numberOfBooks, position, sequence))
+        println(getSequence(position, sequence))
     }
 }
 
-fun getSequence(numberOfBooks: Int, position: Int, sequence: List<Int>): Int {
+fun getSequence(position: Int, sequence: List<Int>): Int {
     val queue: Queue<Pair<Int, Int>> = LinkedList()
     var result = 0
 
