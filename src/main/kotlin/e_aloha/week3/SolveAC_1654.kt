@@ -19,29 +19,26 @@ fun main() = with(System.`in`.bufferedReader()) {
         listOfLan.add(inputLan)
     }
 
-    var left = 1
-    var right = listOfLan.max()
-    var resultOfLan = 0
+    var start = 1L
+    var end = listOfLan.max().toLong()
+    var result = 0L
 
-    while (left <= right) {
-        var count = 0
-        val mid = (left + right) / 2
+    while (start <= end) {
+        var count = 0L
+        val length = (start + end) / 2
 
-        for (lan in listOfLan) {
-            count += lan / mid
-        }
+        listOfLan.forEach { count += it / length }
 
         // 필요 개수를 채울 수 있다면, 최대 길이를 구해야한다.
         if (count >= needs) {
-            resultOfLan = mid
-            left = mid + 1
+            result = length
+            start = length + 1
         } // 필요 개수를 채울 수 없다면, 더 작은 길이로 잘라보아야한다.
         else {
-            right = mid - 1
+            end = length - 1
         }
     }
 
-    println(resultOfLan)
-
+    println(result)
 
 }
