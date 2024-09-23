@@ -5,6 +5,12 @@ import java.util.*
 /**
  * 2nd
  * https://www.acmicpc.net/problem/2606
+ *
+ * 탐색 문제
+ * 간선을 2차원 배열로 나타내준다
+ * 되돌아 가지 않기 위해 visited 배열로 체크해준다
+ * DFS 는 선호하지 않아서 BFS(Queue) 로 진행한다
+ * 시작점인 1부터 BFS 를 진행한다
  */
 fun main() = with(System.`in`.bufferedReader()) {
     val computer = readLine().toInt()
