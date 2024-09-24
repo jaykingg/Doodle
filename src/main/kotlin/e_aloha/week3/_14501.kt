@@ -6,5 +6,6 @@ package e_aloha.week3
  *
  *
  */
-fun _14501 {
+fun main() = with(System.`in`.bufferedReader()) {
+
 }
