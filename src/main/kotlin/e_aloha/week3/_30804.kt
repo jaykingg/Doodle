@@ -17,33 +17,42 @@ package e_aloha.week3
 fun main() = with(System.`in`.bufferedReader()) {
     val n = readLine().toInt()
     val list = readLine().split(" ").map { it.toInt() }
-    var start = 1
-    var end = 1
-    var max = -1
-    val fruit = HashMap<Int, Int>()
+    val fruit = IntArray(list.size + 1) { 0 }
+    var start = 0
+    var end = 0
+    var max = Integer.MIN_VALUE
 
-    for (i in 1 until 10) {
-        fruit[i] = 0
-    }
-
-    fruit[list[0]] = 1
-
-    println(list)
+    // 0 ~ 4
     while (end <= list.size) {
-        val count = fruit.values.stream().filter { it > 0 }.count()
-        if (count < 3) {
-            max = maxOf(max, fruit.values.sum())
-            fruit[list[end - 1]] = fruit[list[end - 1]]!!.plus(1)
+        if (start == list.size || end == list.size) break
+        var count = fruit.count { it > 0 }
+        println("start:: $start, end:: $end, count:: $count, size:: ${list.size}")
+        println(fruit.toList())
+        if (count < 3 && end < list.size) {
+            fruit[list[end]] += 1
             end++
+            count++
+            if (count == 3) {
+                fruit[list[start]] -= 1
+                start++
+            }
+            val sum = fruit.sum()
+            max = maxOf(max, sum)
+
         } else {
-            fruit[list[start - 1]] = fruit[list[start - 1]]!!.minus(1)
-            start++
+            if (start < end && start < list.size) {
+                fruit[list[start]] -= 1
+                start++
+            }
         }
     }
-
     println(max)
-
-    //fruit.values.stream().filter { it > 0 }.count()
+    /**
+     *   5
+     *   5 1 1 2 1
+     * s   1
+     * e         4
+     */
 
     /*
         배열 전체를 distinct 했기 때문에 시간초과가 뜬 것이 아닌가
