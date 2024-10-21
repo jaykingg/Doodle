@@ -48,5 +48,5 @@ fun main() = with(System.`in`.bufferedReader()) {
         }
     }
 
-    println("$minTime $optimalHeight")
+    println("$min $resultHeight")
 }
