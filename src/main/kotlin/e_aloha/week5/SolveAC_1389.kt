@@ -17,9 +17,9 @@ fun main() = with(System.`in`.bufferedReader()) {
         graph[a].add(b)
         graph[b].add(a)
     }
- 
+
     fun bfs(start: Int): Int {
-        val distances = IntArray(n + 1) { -1 }  // 각 유저까지의 거리를 저장 (-1은 미방문을 의미)
+        val distances = IntArray(n + 1) { -1 }
         val queue: Queue<Int> = LinkedList()
         queue.add(start)
         distances[start] = 0
@@ -29,8 +29,8 @@ fun main() = with(System.`in`.bufferedReader()) {
 
             // 현재 유저와 연결된 모든 친구를 탐색
             for (friend in graph[current]) {
-                if (distances[friend] == -1) {  // 미방문
-                    distances[friend] = distances[current] + 1  // 거리 갱신
+                if (distances[friend] == -1) {
+                    distances[friend] = distances[current] + 1
                     queue.add(friend)
                 }
             }
