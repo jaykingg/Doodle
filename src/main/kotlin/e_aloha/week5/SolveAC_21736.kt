@@ -6,6 +6,7 @@ import java.util.*
  * https://www.acmicpc.net/problem/21736
  * 헌내기는 친구가 필요해
  *
+ *
  */
 fun main() = with(System.`in`.bufferedReader()) {
     val (row, col) = readLine().split(" ").map { it.toInt() }

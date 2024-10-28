@@ -5,8 +5,9 @@ import java.util.*
 /**
  * https://www.acmicpc.net/problem/1389
  * 케빈 베이컨의 6단계 원칙
- * 그래프 문제 ,
  *
+ *
+ * 그래프 문제
  */
 fun main() = with(System.`in`.bufferedReader()) {
     val (n, m) = readLine().split(" ").map { it.toInt() }
@@ -51,4 +52,39 @@ fun main() = with(System.`in`.bufferedReader()) {
     }
 
     println(result)
+
+//    val (n, m) = readLine().split(" ").map { it.toInt() }
+//    val inf = 1000000
+//    val map = Array(n + 1) { IntArray(n + 1) { inf } }
+//
+//    for (i in 1..n) {
+//        map[i][i] = 0
+//    }
+//
+//    repeat(m) {
+//        val (a, b) = readLine().split(" ").map { it.toInt() }
+//        map[a][b] = 1
+//        map[b][a] = 1
+//    }
+//
+//    for (k in 1..n) {
+//        for (i in 1..n) {
+//            for (j in 1..n) {
+//                map[i][j] = minOf(map[i][j], map[i][k] + map[k][j])
+//            }
+//        }
+//    }
+//
+//    var min = Int.MAX_VALUE
+//    var resultValue = 0
+//
+//    for (i in 1..n) {
+//        val bacon = map[i].slice(1..n).sum()
+//        if (bacon < min) {
+//            min = bacon
+//            resultValue = i
+//        }
+//    }
+//
+//    println(resultValue)
 }
