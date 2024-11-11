@@ -1,5 +1,7 @@
 package e_aloha.week6
 
+import kotlin.math.pow
+
 /**
  * https://www.acmicpc.net/problem/1074
  * Z
@@ -7,40 +9,26 @@ package e_aloha.week6
  *
  */
 fun main() = with(System.`in`.bufferedReader()) {
-    val (N, r, c) = readLine()!!.split(" ").map { it.toInt() }
-    var size = 1 shl N  // 2^N 크기
-    var row = r
-    var col = c
-    var number = 0
+    val (n, r, c) = readLine()!!.split(" ").map { it.toInt() }
+    println(findZ(n, r, c))
+}
 
-    while (size > 1) {
-        size /= 2
- 
-        when {
-            row < size && col < size -> {
-                // 1사분면: order 변화 없음
-            }
+fun findZ(n: Int, r: Int, c: Int): Int {
+    if (n == 0) return 0
 
-            size in (row + 1)..col -> {
-                // 2사분면
-                number += size * size
-                col -= size
-            }
+    // 2^(n-1) 크기 계산
+    val half = 2.0.pow(n - 1).toInt()
+    return when {
+        // 1사분면
+        r < half && c < half -> findZ(n - 1, r, c)
 
-            size in (col + 1)..row -> {
-                // 3사분면
-                number += 2 * size * size
-                row -= size
-            }
+        // 2사분면
+        half in (r + 1)..c -> half * half + findZ(n - 1, r, c - half)
 
-            row >= size && col >= size -> {
-                // 4사분면
-                number += 3 * size * size
-                row -= size
-                col -= size
-            }
-        }
+        // 3사분면
+        half in (c + 1)..r -> 2 * half * half + findZ(n - 1, r - half, c)
+
+        // 4사분면
+        else -> 3 * half * half + findZ(n - 1, r - half, c - half)
     }
-
-    println(number)
 }
