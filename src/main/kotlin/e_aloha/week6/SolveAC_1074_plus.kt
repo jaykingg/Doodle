@@ -19,10 +19,10 @@ fun findZ(n: Int, r: Int, c: Int): Int {
     // 2^(n-1) 크기 계산
     val half = 2.0.pow(n - 1).toInt()
     return when {
-        // 1사분면
+        // 2사분면
         r < half && c < half -> findZ(n - 1, r, c)
 
-        // 2사분면
+        // 1사분면
         half in (r + 1)..c -> half * half + findZ(n - 1, r, c - half)
 
         // 3사분면
