@@ -15,7 +15,7 @@ fun main() = with(System.`in`.bufferedReader()) {
 
     while (size > 1) {
         size /= 2
-
+ 
         when {
             row < size && col < size -> {
                 // 1사분면: order 변화 없음
