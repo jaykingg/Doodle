@@ -1,4 +1,4 @@
-package e_aloha.week9
+package legacy.e_aloha.week9
 
 import java.util.*
 

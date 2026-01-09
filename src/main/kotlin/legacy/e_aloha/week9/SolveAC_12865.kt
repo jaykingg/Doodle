@@ -1,4 +1,4 @@
-package e_aloha.week9
+package legacy.e_aloha.week9
 
 /**
  * https://www.acmicpc.net/problem/12865
